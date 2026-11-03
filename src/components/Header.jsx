@@ -18,7 +18,7 @@ function Header({cart}) {
             href="#products"
             className="text-gray-600 transition hover:text-black"
           >
-            Products
+            Product
           </a>
 
           <a
