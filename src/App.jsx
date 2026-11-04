@@ -1,29 +1,19 @@
-// import { useState, useEffect } from "react";
-// import Header from './components/Header'
-// import Footer from "./components/Footer";
-// import Hero from "./components/Hero";
-// import PostsList from "./components/PostsList";
-// import ProductList from './components/ProductList'
-
+import { Routes, Route } from "react-router";
+import { useState } from "react";
+import Home from "./pages/Home";
+import About from "./pages/About";
 function App() {
-  // const [cart,setCart] = useState([])
+ const [cart,setCart] = useState([])
 
-  // useEffect(() => {
-  //   console.log(111)
-  // })
-
-  // function addToCart(product) {
-  //     setCart(prev => [...prev, product])
-  // }
+   function addToCart(product) {
+      setCart(prev => [...prev, product])
+  }
 
   return (
-    <div className='min-h-screen bg-gray-100'>
-      {/* <PostsList/>
-       <Header cart={cart.length}/>
-   <Hero/>
-    <ProductList onAddToCart={addToCart}/>
-    <Footer/>  */}
-    </div>
+   <Routes>
+      <Route path="/" element={<Home cartLength={cart.length} addToCart={addToCart} />}/>
+      <Route path="/about" element={<About cartLength={cart.length}/>}/>
+   </Routes>
   );
 }
 

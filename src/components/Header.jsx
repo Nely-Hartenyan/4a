@@ -1,3 +1,5 @@
+import { Link,NavLink } from "react-router";
+
 function Header({cart}) {
   return (
     <header className="bg-white shadow-sm">
@@ -7,12 +9,15 @@ function Header({cart}) {
         </h1>
 
         <nav className="flex gap-6">
-          <a
-            href="#"
-            className="text-gray-600 transition hover:text-black"
-          >
+          <NavLink
+            to="/"
+             className={({ isActive }) =>
+          isActive
+            ? "font-bold text-blue-600"
+            : "text-gray-600 hover:text-blue-500"
+        }          >
             Home
-          </a>
+          </NavLink>
 
           <a
             href="#products"
@@ -21,12 +26,17 @@ function Header({cart}) {
             Product
           </a>
 
-          <a
-            href="#"
-            className="text-gray-600 transition hover:text-black"
+          <NavLink
+            to="/about"
+             className={({ isActive }) =>
+          isActive
+            ? "font-bold text-blue-600"
+            : "text-gray-600 hover:text-blue-500"
+        }
+
           >
             About
-          </a>
+          </NavLink>
         </nav>
         <p>Cart: {cart} </p>
       </div>
