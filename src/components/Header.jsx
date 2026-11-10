@@ -19,12 +19,15 @@ function Header({cart}) {
             Home
           </NavLink>
 
-          <a
-            href="#products"
-            className="text-gray-600 transition hover:text-black"
-          >
-            Product
-          </a>
+          <NavLink
+            to="/dashboard"
+             className={({ isActive }) =>
+          isActive
+            ? "font-bold text-blue-600"
+            : "text-gray-600 hover:text-blue-500"
+        }        >
+            Dashboard
+          </NavLink>
 
           <NavLink
             to="/about"
@@ -38,7 +41,13 @@ function Header({cart}) {
             About
           </NavLink>
         </nav>
-        <p>Cart: {cart} </p>
+         <NavLink
+            to="/cart"
+             className={({ isActive }) =>
+          isActive
+            ? "font-bold text-blue-600"
+            : "text-gray-600 hover:text-blue-500"
+        }          >Cart: {cart} </NavLink>
       </div>
     </header>
   );
