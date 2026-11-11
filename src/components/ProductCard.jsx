@@ -1,6 +1,12 @@
 import {Link, useLocation} from 'react-router'
-function ProductCard({product,onAddToCart,removeFromCart}){
+import { useContext } from "react";
+
+import { CartContext } from "../context/CartContext";
+
+function ProductCard({product}){
     const location = useLocation()
+    const { addToCart, removeFromCart } = useContext(CartContext);
+    
     const isCartPage = location.pathname === '/cart'
     
     return (
@@ -25,7 +31,7 @@ function ProductCard({product,onAddToCart,removeFromCart}){
                 <button 
                 onClick={(e) => {
                     e.preventDefault()
-                    onAddToCart(product)
+                    addToCart(product)
                 }}
                 className='rounded-xl mt-4 w-full bg-black text-white p-1 mt-2 cursor-pointer hover:bg-gray-700 '>Add to cart </button>
             }

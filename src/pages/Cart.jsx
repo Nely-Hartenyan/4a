@@ -1,8 +1,13 @@
 import ProductCard from "../components/ProductCard"
 import {Link} from 'react-router'
-function Cart({cart,removeFromCart}){
+import { useContext } from "react";
 
-    if (cart.length === 0) {
+import { CartContext } from "../context/CartContext";
+
+function Cart(){
+   const { cartCount, cart} = useContext(CartContext);
+
+    if (cartCount === 0) {
     return (
       <section className="mx-auto max-w-4xl p-8 text-center">
         <h1 className="text-3xl font-bold">
@@ -25,7 +30,7 @@ function Cart({cart,removeFromCart}){
 
     return(
         <div className="flex">
-            {cart.map(item => <ProductCard product={item} removeFromCart={removeFromCart}/>)}
+            {cart.map(item => <ProductCard product={item} />)}
         </div>
     )
 }

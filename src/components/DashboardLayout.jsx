@@ -1,7 +1,7 @@
 import { NavLink, Outlet,useLocation } from "react-router";
 import Header from "./Header";
 
-function DashboardLayout({cartLength}) {
+function DashboardLayout() {
       const location = useLocation();
       console.log(location);
       
@@ -15,7 +15,7 @@ function DashboardLayout({cartLength}) {
 
   return (
     <div className="min-h-screen bg-gray-100">
-       <Header cart={cartLength}/>
+       <Header />
 
       <div className="mx-auto grid max-w-6xl gap-6 p-6 md:grid-cols-[220px_1fr]">
         <aside className="rounded-xl bg-white p-4 shadow-sm">

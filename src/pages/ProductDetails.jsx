@@ -1,7 +1,12 @@
 import { useParams, Link } from "react-router"
 import {products} from '../data/products'
-function ProductDetails({onAddToCart}){
+import { useContext } from "react";
+
+import { CartContext } from "../context/CartContext";
+
+function ProductDetails(){
     const {productId} = useParams()
+       const { addToCart } = useContext(CartContext);
     
     const product = products.data.find(item => item.id === +productId)
 
@@ -52,7 +57,7 @@ function ProductDetails({onAddToCart}){
           </p>
 
           <button
-            onClick={() => onAddToCart(product)}
+            onClick={() => addToCart(product)}
             className="mt-6 rounded-lg bg-blue-600 px-6 py-3 text-white hover:bg-blue-700"
           >
             Add to Cart

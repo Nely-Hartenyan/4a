@@ -1,6 +1,6 @@
 import {products} from '../data/products'
 import ProductCard from "./ProductCard";
-function ProductList({onAddToCart}){
+function ProductList(){
     return(
         <section className='mt-5'>
             <div className='mb-5 text-center'>
@@ -12,8 +12,7 @@ function ProductList({onAddToCart}){
                     <ProductCard
                         product={item}
                         key={item.id}
-                        onAddToCart={onAddToCart}
-                    />
+                />
                 ))}
             </div>
         </section>

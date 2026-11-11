@@ -1,6 +1,11 @@
-import { Link,NavLink } from "react-router";
+import { NavLink } from "react-router";
+import { useContext } from "react";
 
-function Header({cart}) {
+import { CartContext } from "../context/CartContext";
+
+function Header() {
+   const { cartCount } = useContext(CartContext);
+
   return (
     <header className="bg-white shadow-sm">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
@@ -47,7 +52,7 @@ function Header({cart}) {
           isActive
             ? "font-bold text-blue-600"
             : "text-gray-600 hover:text-blue-500"
-        }          >Cart: {cart} </NavLink>
+        }          >Cart: {cartCount} </NavLink>
       </div>
     </header>
   );
